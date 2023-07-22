@@ -1,4 +1,5 @@
-FROM nginx
-COPY index.html /var/www/html
-EXPOSE 80
-CMD ["nginx","-g","daemon off;"]
+
+FROM httpd:latest
+
+# Copy your application files to the appropriate directory in the image
+COPY index.html /usr/local/apache2/htdocs/
