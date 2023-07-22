@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: httpd-deployment
+spec:
+  replicas: 2       
+  selector:
+    matchLabels:
+      app: sample    
+  template:
+    metadata:
+      labels:
+        app: sample   
+    spec:
+      containers:
+        - name: httpd
+          image: cpntainer.azurecr.io/mano257200/kuber
+          ports:
+            - containerPort: 80  
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: sample-service
+spec:
+  selector:
+    app: sample
+  ports:
+    - protocol: TCP
+      port: 80
+  type: LoadBalancer 
