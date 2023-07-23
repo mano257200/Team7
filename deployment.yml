@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: my-app-container
-        image: crteam.azurecr.io/mano257200/kuber
+        image: ccrma.azurecr.io/mano257200/kuber
         ports:
         - containerPort: 80
 
